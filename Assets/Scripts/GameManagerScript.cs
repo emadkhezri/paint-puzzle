@@ -103,8 +103,7 @@ public class GameManagerScript : MonoBehaviour
         //remove old rect highlight
         for (int x = (int)selectionRect.xMin; x <= selectionRect.xMax; ++x)
             for (int y = (int)selectionRect.yMin; y <= selectionRect.yMax; ++y)
-                puzzleBoard[x, y].GetComponent<PuzzleCellScript>().RemoveHighlight(SelectedColor);
-
+                puzzleBoard[x, y].GetComponent<PuzzleCellScript>().RemoveHighlight();
 
         //update rect coords
         selectionEndCoords = position;
@@ -126,7 +125,7 @@ public class GameManagerScript : MonoBehaviour
         for (int col = (int)selectionRect.xMin; col <= selectionRect.xMax; ++col)
             for (int row = (int)selectionRect.yMin; row <= selectionRect.yMax; ++row)
             {
-                puzzleBoard[col, row].GetComponent<PuzzleCellScript>().RemoveHighlight(SelectedColor);
+                puzzleBoard[col, row].GetComponent<PuzzleCellScript>().RemoveHighlight();
                 puzzleBoard[col, row].GetComponent<PuzzleCellScript>().AddColor(SelectedColor);
             }
     }
