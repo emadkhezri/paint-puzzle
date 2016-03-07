@@ -49,19 +49,19 @@ public class PuzzleCellScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        print(string.Format("Cell[{0}, {1}] received mouse down.", Position.x, Position.y));
+        //print(string.Format("Cell[{0}, {1}] received mouse down.", Position.x, Position.y));
         gameManager.StartCellSelection(Position);
     }
 
     void OnMouseEnter()
     {
-        print(string.Format("Cell[{0}, {1}] received mouse enter.", Position.x, Position.y));
+        //print(string.Format("Cell[{0}, {1}] received mouse enter.", Position.x, Position.y));
         gameManager.UpdateCellSelectionRect(Position);
     }
 
     void OnMouseUp()
     {
-        print(string.Format("[{0}, {1}]: mouse up.", Position.x, Position.y));
+        //print(string.Format("[{0}, {1}]: mouse up.", Position.x, Position.y));
         gameManager.EndCellSelection();
     }
 
@@ -74,7 +74,7 @@ public class PuzzleCellScript : MonoBehaviour
     {
         Color oldColor = gameObject.GetComponent<SpriteRenderer>().color;
 
-        print(string.Format("[{0}, {1}]: Adding color. oldColor= {0}, color= {1}.", oldColor, color));
+        //print(string.Format("[{0}, {1}]: Adding color. oldColor= {0}, color= {1}.", oldColor, color));
         Color newColor = mixColor(oldColor, color);
         gameObject.GetComponent<SpriteRenderer>().color = newColor;
     }
@@ -84,7 +84,7 @@ public class PuzzleCellScript : MonoBehaviour
         if (isHighlighted)
             return;
 
-        print(string.Format("[{0}, {1}]: Adding hightlight. color= {2}", Position.x, Position.y, color));
+        //print(string.Format("[{0}, {1}]: Adding hightlight. color= {2}", Position.x, Position.y, color));
         Color newColor = mixColor(
             gameObject.GetComponent<SpriteRenderer>().color,
             color);
@@ -95,12 +95,12 @@ public class PuzzleCellScript : MonoBehaviour
 
     public void RemoveHighlight(Color color)
     {
-        print(string.Format("[{0}, {1}]: Removing hightlight. color= {2}", Position.x, Position.y, color));
+        //print(string.Format("[{0}, {1}]: Removing hightlight. color= {2}", Position.x, Position.y, color));
         Color newColor = takeColor(
             gameObject.GetComponent<SpriteRenderer>().color,
             color);
-        print(string.Format("[{0}, {1}]: {2} - {3} = {4}", Position.x, Position.y,
-            color, gameObject.GetComponent<SpriteRenderer>().color, newColor));
+        //print(string.Format("[{0}, {1}]: {2} - {3} = {4}", Position.x, Position.y,
+        //    color, gameObject.GetComponent<SpriteRenderer>().color, newColor));
         gameObject.GetComponent<SpriteRenderer>().color = newColor;
 
         isHighlighted = false;

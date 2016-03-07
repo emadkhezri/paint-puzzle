@@ -5,7 +5,9 @@ public class GameManagerScript : MonoBehaviour
 {
     private GameObject[,] puzzleBoard;
     private const float cellWidth = 0.65f;
-    private Rect selectionRectTopLeftCornerCoords;
+    private Vector2 selectionStartCoords;
+    private Vector2 selectionEndCoords;
+    private Rect selectionRect;
     private bool isCellSelectionActive = false;
 
     public Color SelectedColor;
@@ -74,10 +76,13 @@ public class GameManagerScript : MonoBehaviour
     {
         isCellSelectionActive = true;
 
-        selectionRectTopLeftCornerCoords.xMin = position.x;
-        selectionRectTopLeftCornerCoords.yMin = position.y;
-        selectionRectTopLeftCornerCoords.xMax = position.x;
-        selectionRectTopLeftCornerCoords.yMax = position.y;
+        selectionStartCoords = position;
+        selectionEndCoords = position;
+
+        selectionRect.xMin = position.x;
+        selectionRect.yMin = position.y;
+        selectionRect.xMax = position.x;
+        selectionRect.yMax = position.y;
 
         puzzleBoard[(int)position.x, (int)position.y].GetComponent<PuzzleCellScript>().AddHighlight(SelectedColor);
     }
@@ -86,34 +91,31 @@ public class GameManagerScript : MonoBehaviour
     {
         if (!isCellSelectionActive)
         {
-            print("Cell Selection is not active, no need to update rect.");
+            //print("Cell Selection is not active, no need to update rect.");
+            return;
+        }
+        if (selectionEndCoords == position)
+        {
+            //print("Selection did not change no need to updated.");
             return;
         }
 
         //remove old rect highlight
-        for (int x = (int)selectionRectTopLeftCornerCoords.xMin; x <= selectionRectTopLeftCornerCoords.xMax; ++x)
-            for (int y = (int)selectionRectTopLeftCornerCoords.yMin; y <= selectionRectTopLeftCornerCoords.yMax; ++y)
+        for (int x = (int)selectionRect.xMin; x <= selectionRect.xMax; ++x)
+            for (int y = (int)selectionRect.yMin; y <= selectionRect.yMax; ++y)
                 puzzleBoard[x, y].GetComponent<PuzzleCellScript>().RemoveHighlight(SelectedColor);
 
+
         //update rect coords
-        if (selectionRectTopLeftCornerCoords.xMin <= position.x)
-            selectionRectTopLeftCornerCoords.xMax = position.x;
-        else
-        {
-            selectionRectTopLeftCornerCoords.xMax = selectionRectTopLeftCornerCoords.xMin;
-            selectionRectTopLeftCornerCoords.xMin = position.x;
-        }
-        if (selectionRectTopLeftCornerCoords.yMin <= position.y)
-            selectionRectTopLeftCornerCoords.yMax = position.y;
-        else
-        {
-            selectionRectTopLeftCornerCoords.yMax = selectionRectTopLeftCornerCoords.yMin;
-            selectionRectTopLeftCornerCoords.yMin = position.y;
-        }
+        selectionEndCoords = position;
+        selectionRect.xMin = Mathf.Min(selectionStartCoords.x, selectionEndCoords.x);
+        selectionRect.yMin = Mathf.Min(selectionStartCoords.y, selectionEndCoords.y);
+        selectionRect.xMax = Mathf.Max(selectionStartCoords.x, selectionEndCoords.x);
+        selectionRect.yMax = Mathf.Max(selectionStartCoords.y, selectionEndCoords.y);
 
         // add highlight to updated rect
-        for(int x=(int)selectionRectTopLeftCornerCoords.xMin; x<=selectionRectTopLeftCornerCoords.xMax; ++x)
-            for (int y = (int)selectionRectTopLeftCornerCoords.yMin; y <= selectionRectTopLeftCornerCoords.yMax; ++y)
+        for(int x=(int)selectionRect.xMin; x<=selectionRect.xMax; ++x)
+            for (int y = (int)selectionRect.yMin; y <= selectionRect.yMax; ++y)
                 puzzleBoard[x, y].GetComponent<PuzzleCellScript>().AddHighlight(SelectedColor);
     }
 
@@ -121,8 +123,8 @@ public class GameManagerScript : MonoBehaviour
     {
         isCellSelectionActive = false;
 
-        for (int col = (int)selectionRectTopLeftCornerCoords.xMin; col <= selectionRectTopLeftCornerCoords.xMax; ++col)
-            for (int row = (int)selectionRectTopLeftCornerCoords.yMin; row <= selectionRectTopLeftCornerCoords.yMax; ++row)
+        for (int col = (int)selectionRect.xMin; col <= selectionRect.xMax; ++col)
+            for (int row = (int)selectionRect.yMin; row <= selectionRect.yMax; ++row)
             {
                 puzzleBoard[col, row].GetComponent<PuzzleCellScript>().RemoveHighlight(SelectedColor);
                 puzzleBoard[col, row].GetComponent<PuzzleCellScript>().AddColor(SelectedColor);
