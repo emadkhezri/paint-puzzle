@@ -46,9 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GameManagerScript.cs" />
-     <Compile Include="Assets\Scripts\PaletteCellScript.cs" />
-     <Compile Include="Assets\Scripts\PuzzleCellScript.cs" />
+     <Compile Include="Assets\Code\Classes\Command\AddColorCommand.cs" />
+     <Compile Include="Assets\Code\Classes\Command\CommandHistory.cs" />
+     <Compile Include="Assets\Code\Classes\Command\ICommand.cs" />
+     <Compile Include="Assets\Code\Scripts\GameManagerScript.cs" />
+     <Compile Include="Assets\Code\Scripts\PaletteCellScript.cs" />
+     <Compile Include="Assets\Code\Scripts\PuzzleCellScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

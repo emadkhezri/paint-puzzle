@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Code.Classes.Command;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManagerScript : MonoBehaviour
     private Vector2 selectionEndCoords;
     private Rect selectionRect;
     private bool isCellSelectionActive = false;
+    private CommandHistory commandHistory = new CommandHistory();
 
     public Color SelectedColor;
 
@@ -69,7 +71,14 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            commandHistory.Undo();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            commandHistory.Redo();
+        }
     }
     
     public void StartCellSelection(Vector2 position)
@@ -124,9 +133,16 @@ public class GameManagerScript : MonoBehaviour
 
         for (int col = (int)selectionRect.xMin; col <= selectionRect.xMax; ++col)
             for (int row = (int)selectionRect.yMin; row <= selectionRect.yMax; ++row)
-            {
                 puzzleBoard[col, row].GetComponent<PuzzleCellScript>().RemoveHighlight();
-                puzzleBoard[col, row].GetComponent<PuzzleCellScript>().AddColor(SelectedColor);
-            }
+
+        AddColorCommandParams commandParameters = new AddColorCommandParams
+        {
+            PuzzleBoard = puzzleBoard,
+            SelectedColor = SelectedColor,
+            SelectionRect = selectionRect
+        };
+        AddColorCommand command = new AddColorCommand(commandParameters);
+        command.Execute();
+        commandHistory.Add(command);
     }
 }

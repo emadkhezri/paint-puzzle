@@ -8,6 +8,18 @@ public class PuzzleCellScript : MonoBehaviour
     private bool isHighlighted = false;
     private Color actualColor = Color.white;
 
+    public Color ActualColor
+    {
+        get { return actualColor; }
+
+        set
+        {
+            actualColor = value;
+            gameObject.GetComponent<SpriteRenderer>().color = actualColor;
+
+        }
+    }
+
     public Vector2 Position
     {
         private get;
@@ -77,7 +89,7 @@ public class PuzzleCellScript : MonoBehaviour
 
         //print(string.Format("[{0}, {1}]: Adding color. oldColor= {0}, color= {1}.", oldColor, color));
         actualColor = mixColor(oldColor, color);
-        gameObject.GetComponent<SpriteRenderer>().color = actualColor;
+        gameObject.GetComponent<SpriteRenderer>().color = ActualColor;
     }
 
     public void AddHighlight(Color color)
@@ -99,7 +111,7 @@ public class PuzzleCellScript : MonoBehaviour
         //print(string.Format("[{0}, {1}]: Removing hightlight. color= {2}", Position.x, Position.y, color));
         //print(string.Format("[{0}, {1}]: {2} - {3} = {4}", Position.x, Position.y,
         //    color, gameObject.GetComponent<SpriteRenderer>().color, actualColor));
-        gameObject.GetComponent<SpriteRenderer>().color = actualColor;
+        gameObject.GetComponent<SpriteRenderer>().color = ActualColor;
 
         isHighlighted = false;
     }
