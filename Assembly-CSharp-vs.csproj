@@ -52,6 +52,7 @@
      <Compile Include="Assets\Code\Scripts\GameManagerScript.cs" />
      <Compile Include="Assets\Code\Scripts\PaletteCellScript.cs" />
      <Compile Include="Assets\Code\Scripts\PuzzleCellScript.cs" />
+     <Compile Include="Assets\Code\Scripts\ShakeObjectScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

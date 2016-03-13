@@ -35,6 +35,19 @@ public class GameManagerScript : MonoBehaviour
         palette[2].GetComponent<SpriteRenderer>().color = Color.blue;
 
         createPuzzleBoard();
+        bringPuzzleBoardIntoView();
+    }
+
+    private void bringPuzzleBoardIntoView()
+    {
+        for (int x = 0; x < PuzzleWidth; ++x)
+            for (int y = 0; y < PuzzleHeight; ++y)
+            {
+                Vector3 position = puzzleBoard[x, y].transform.position;
+                position.y -= 10;
+                puzzleBoard[x, y].GetComponent<PuzzleCellScript>().StartMoveToDestination(
+                    position, 2f - Random.Range(0f, 1f));
+            }
     }
 
     private void createPuzzleBoard()
@@ -44,11 +57,11 @@ public class GameManagerScript : MonoBehaviour
             for (int y = 0; y < PuzzleHeight; ++y)
             {
                 puzzleBoard[x, y] = Instantiate<GameObject>(PuzzleCellPrefab);
-                puzzleBoard[x, y].GetComponent<PuzzleCellScript>().Position = new Vector2(x, y);
+                puzzleBoard[x, y].GetComponent<PuzzleCellScript>().PositionInBoard = new Vector2(x, y);
                 puzzleBoard[x, y].GetComponent<PuzzleCellScript>().SetGameManager(gameObject.GetComponent<GameManagerScript>());
                 puzzleBoard[x, y].GetComponent<Transform>().position = new Vector3(
                     PuzzleTopLeftCornerCoords.x + x * cellWidth,
-                    PuzzleTopLeftCornerCoords.y - y * cellWidth,
+                    PuzzleTopLeftCornerCoords.y + 10 - y * cellWidth,
                     0);
             }
     }

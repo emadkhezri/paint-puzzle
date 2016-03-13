@@ -4,10 +4,20 @@ using System;
 
 public class PuzzleCellScript : MonoBehaviour
 {
+    #region Private Fields
     private GameManagerScript gameManager;
+
     private bool isHighlighted = false;
     private Color actualColor = Color.white;
 
+    private bool isMoving = false;
+    private float moveStartTime;
+    private float moveDuration;
+    private Vector3 moveStartPostion;
+    private Vector3 moveDestinationPosition;
+    #endregion
+
+    #region Public Properties
     public Color ActualColor
     {
         get { return actualColor; }
@@ -20,12 +30,14 @@ public class PuzzleCellScript : MonoBehaviour
         }
     }
 
-    public Vector2 Position
+    public Vector2 PositionInBoard
     {
         private get;
         set;
     }
+    #endregion
 
+    #region Private Methods
     private Color mixColor(Color backColor, Color foreColor)
     {
         if (backColor == Color.white)
@@ -47,7 +59,9 @@ public class PuzzleCellScript : MonoBehaviour
                backColor.g - foreColor.g,
                backColor.b - foreColor.b);
     }
+    #endregion
 
+    #region MonoBehaviour Methods
     // Use this for initialization
     void Start()
     {
@@ -57,19 +71,28 @@ public class PuzzleCellScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (isMoving)
+        {
+            float progress = (Time.time - moveStartTime) / moveDuration;
+            gameObject.transform.position = Vector3.Lerp(moveStartPostion, moveDestinationPosition, progress);
+            if (progress > 1)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+                isMoving = false;
+            }
+        }
     }
 
     void OnMouseDown()
     {
         //print(string.Format("Cell[{0}, {1}] received mouse down.", Position.x, Position.y));
-        gameManager.StartCellSelection(Position);
+        gameManager.StartCellSelection(PositionInBoard);
     }
 
     void OnMouseEnter()
     {
         //print(string.Format("Cell[{0}, {1}] received mouse enter.", Position.x, Position.y));
-        gameManager.UpdateCellSelectionRect(Position);
+        gameManager.UpdateCellSelectionRect(PositionInBoard);
     }
 
     void OnMouseUp()
@@ -77,7 +100,9 @@ public class PuzzleCellScript : MonoBehaviour
         //print(string.Format("[{0}, {1}]: mouse up.", Position.x, Position.y));
         gameManager.EndCellSelection();
     }
+    #endregion
 
+    #region Public Methods
     public void SetGameManager(GameManagerScript manager)
     {
         gameManager = manager;
@@ -115,4 +140,15 @@ public class PuzzleCellScript : MonoBehaviour
 
         isHighlighted = false;
     }
+
+    public void StartMoveToDestination(Vector3 destination, float duration)
+    {
+        moveStartPostion = gameObject.transform.position;
+        moveDestinationPosition = destination;
+        moveDuration = duration;
+        moveStartTime = Time.time;
+        isMoving = true;
+    }
+    #endregion
+
 }
