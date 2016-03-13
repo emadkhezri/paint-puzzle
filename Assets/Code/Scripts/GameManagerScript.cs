@@ -35,10 +35,10 @@ public class GameManagerScript : MonoBehaviour
         palette[2].GetComponent<SpriteRenderer>().color = Color.blue;
 
         createPuzzleBoard();
-        bringPuzzleBoardIntoView();
+        movePuzzleBoardIntoView();
     }
 
-    private void bringPuzzleBoardIntoView()
+    private void movePuzzleBoardIntoView()
     {
         for (int x = 0; x < PuzzleWidth; ++x)
             for (int y = 0; y < PuzzleHeight; ++y)
@@ -46,7 +46,7 @@ public class GameManagerScript : MonoBehaviour
                 Vector3 position = puzzleBoard[x, y].transform.position;
                 position.y -= 10;
                 puzzleBoard[x, y].GetComponent<PuzzleCellScript>().StartMoveToDestination(
-                    position, 2f - Random.Range(0f, 1f));
+                    position, 1f - Random.Range(0, 2) * 0.4f);
             }
     }
 
@@ -91,6 +91,10 @@ public class GameManagerScript : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             commandHistory.Redo();
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            puzzleBoard[0, 0].AddComponent<ShakeObjectScript>();
         }
     }
     
