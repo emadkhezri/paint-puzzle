@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 16
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{37F0EFE0-B93D-6C43-12D2-4208D1A25C01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.paintpuzzle", "com.paintpuzzle.csproj", "{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{37F0EFE0-B93D-6C43-12D2-4208D1A25C01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37F0EFE0-B93D-6C43-12D2-4208D1A25C01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37F0EFE0-B93D-6C43-12D2-4208D1A25C01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37F0EFE0-B93D-6C43-12D2-4208D1A25C01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

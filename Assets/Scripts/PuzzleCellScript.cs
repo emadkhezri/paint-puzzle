@@ -6,7 +6,7 @@ namespace com.paintpuzzle
     public class PuzzleCellScript : MonoBehaviour
     {
         #region Private Fields
-        private GameManagerScript gameManager;
+        private GameManager gameManager;
 
         private bool isHighlighted = false;
         private Color actualColor = Color.white;
@@ -95,7 +95,7 @@ namespace com.paintpuzzle
         #endregion
 
         #region Public Methods
-        public void SetGameManager(GameManagerScript manager)
+        public void SetGameManager(GameManager manager)
         {
             gameManager = manager;
         }

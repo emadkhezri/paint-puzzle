@@ -5,9 +5,9 @@ namespace com.paintpuzzle
     public class PaletteCellScript : MonoBehaviour
     {
 
-        private GameManagerScript gameManager;
+        private GameManager gameManager;
 
-        public void SetGameManager(GameManagerScript manager)
+        public void SetGameManager(GameManager manager)
         {
             gameManager = manager;
         }

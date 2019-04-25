@@ -2,7 +2,7 @@
 
 namespace com.paintpuzzle
 {
-    public class GameManagerScript : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         private GameObject[,] puzzleBoard;
         private const float cellWidth = 0.65f;
@@ -58,7 +58,7 @@ namespace com.paintpuzzle
                 {
                     puzzleBoard[x, y] = Instantiate<GameObject>(PuzzleCellPrefab);
                     puzzleBoard[x, y].GetComponent<PuzzleCellScript>().PositionInBoard = new Vector2(x, y);
-                    puzzleBoard[x, y].GetComponent<PuzzleCellScript>().SetGameManager(gameObject.GetComponent<GameManagerScript>());
+                    puzzleBoard[x, y].GetComponent<PuzzleCellScript>().SetGameManager(gameObject.GetComponent<GameManager>());
                     puzzleBoard[x, y].GetComponent<Transform>().position = new Vector3(
                         PuzzleTopLeftCornerCoords.x + x * cellWidth,
                         PuzzleTopLeftCornerCoords.y + 10 - y * cellWidth,
@@ -73,7 +73,7 @@ namespace com.paintpuzzle
             for (int i = 0; i < 3; ++i)
             {
                 palette[i] = Instantiate<GameObject>(PaletteCellPrefab);
-                palette[i].GetComponent<PaletteCellScript>().SetGameManager(gameObject.GetComponent<GameManagerScript>());
+                palette[i].GetComponent<PaletteCellScript>().SetGameManager(gameObject.GetComponent<GameManager>());
                 palette[i].GetComponent<Transform>().position = new Vector3(
                     PaletteTopLeftCornerCoords.x,
                     PaletteTopLeftCornerCoords.y - i * cellWidth,
