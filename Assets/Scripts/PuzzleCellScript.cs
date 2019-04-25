@@ -77,8 +77,6 @@ public class PuzzleCellScript : MonoBehaviour
             gameObject.transform.position = Vector3.Lerp(moveStartPostion, moveDestinationPosition, progress);
             if (progress > 1)
             {
-                gameObject.AddComponent<ShakeObjectScript>();
-                gameObject.GetComponent<AudioSource>().Play();
                 isMoving = false;
             }
         }

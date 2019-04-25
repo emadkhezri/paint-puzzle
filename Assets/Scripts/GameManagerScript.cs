@@ -92,10 +92,6 @@ public class GameManagerScript : MonoBehaviour
         {
             commandHistory.Redo();
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            puzzleBoard[0, 0].AddComponent<ShakeObjectScript>();
-        }
     }
     
     public void StartCellSelection(Vector2 position)

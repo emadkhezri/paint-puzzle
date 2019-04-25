@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Assets.Code.Classes.Command
+﻿namespace Assets.Code.Classes.Command
 {
     public interface ICommand
     {
