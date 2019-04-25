@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Assets.Code.Classes.Command
+namespace com.paintpuzzle
 {
     public class CommandHistory
     {
-        private List<ICommand> commandsList = new List<ICommand>();
+        private readonly List<ICommand> commandsList = new List<ICommand>();
         private int commandToExecuteIndex = 0;
 
         public void Add(ICommand command)

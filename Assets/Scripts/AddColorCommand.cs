@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Assets.Code.Classes.Command
+namespace com.paintpuzzle
 {
     class AddColorCommand : ICommand
     {
-        private AddColorCommandParams commandParams;
-        private Color[,] colorsBeforeExecution;
+        private readonly AddColorCommandParams commandParams;
+        private readonly Color[,] colorsBeforeExecution;
 
         public AddColorCommand(AddColorCommandParams commandParams)
         {

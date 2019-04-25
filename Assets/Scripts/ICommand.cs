@@ -1,4 +1,4 @@
-﻿namespace Assets.Code.Classes.Command
+﻿namespace com.paintpuzzle
 {
     public interface ICommand
     {
