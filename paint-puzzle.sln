@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 16
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "com.paintpuzzle", "com.paintpuzzle.csproj", "{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests.csproj", "{BC050D2A-9012-49F0-3AD8-24AB3FD34481}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E50D52F-8EB3-24F9-4545-C71114BDD1AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC050D2A-9012-49F0-3AD8-24AB3FD34481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC050D2A-9012-49F0-3AD8-24AB3FD34481}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC050D2A-9012-49F0-3AD8-24AB3FD34481}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC050D2A-9012-49F0-3AD8-24AB3FD34481}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

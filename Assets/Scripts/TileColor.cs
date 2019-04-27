@@ -2,6 +2,6 @@
 {
     public enum TileColor
     {
-        White, Red, Green, Blue, Yellow, Magente, Cyan
+        White, Red, Green, Blue, Yellow, Magenta, Cyan
     }
 }
