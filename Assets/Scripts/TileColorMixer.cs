@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
+using System;
 
 namespace com.paintpuzzle
 {
-    public static class TileColorMixer
+    public static class TileColorUtility
     {
         //A Table that defines the color mixing result based on two tileColor input
         private static Dictionary<MixInput, TileColor> s_mixTable;
 
-        static TileColorMixer()
+        static TileColorUtility()
         {
             //Initialize the mixing table
             s_mixTable = new Dictionary<MixInput, TileColor>();
@@ -45,7 +47,30 @@ namespace com.paintpuzzle
             #endregion
         }
 
-        public static TileColor Mix(TileColor background, TileColor forground) => s_mixTable[new MixInput(background, forground)];
+        public static TileColor MixColor(TileColor background, TileColor forground) => s_mixTable[new MixInput(background, forground)];
+
+        public static Color32 GetColor(TileColor tileColor)
+        {
+            switch (tileColor)
+            {
+                case TileColor.White:
+                    return Color.white;
+                case TileColor.Red:
+                    return Color.red;
+                case TileColor.Green:
+                    return Color.green;
+                case TileColor.Blue:
+                    return Color.blue;
+                case TileColor.Yellow:
+                    return Color.yellow;
+                case TileColor.Magenta:
+                    return Color.magenta;
+                case TileColor.Cyan:
+                    return Color.cyan;
+                default:
+                    throw new ArgumentException();
+            }
+        }
 
         private struct MixInput
         {
