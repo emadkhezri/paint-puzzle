@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\PaletteCellScript.cs" />
      <Compile Include="Assets\Scripts\PuzzleCellScript.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
+     <Compile Include="Assets\Scripts\TileBoard.cs" />
      <Compile Include="Assets\Scripts\TileColor.cs" />
      <Compile Include="Assets\Scripts\TileColorMixer.cs" />
      <None Include="Assets\Scripts\com.paintpuzzle.asmdef" />
