@@ -1,21 +1,20 @@
-﻿namespace com.paintpuzzle
-{
-    using UnityEngine;
+﻿using UnityEngine;
 
-    [ExecuteInEditMode]
+namespace com.paintpuzzle
+{
     public class Tile : MonoBehaviour
     {
         [SerializeField]
         private TileColor _currentColor;
 
-        [SerializeField]
         private Material _material;
 
-        void Update()
-        {
-            _material.color = TileColorUtility.GetColor(_currentColor);
+        private void Awake() {
+            _material = GetComponent<MeshRenderer>().material;
         }
 
+        private void OnMouseDown() {
+            _material.color = TileColorUtility.GetColor(_currentColor);
+        }
     }
-
 }
