@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 namespace com.paintpuzzle 
 {
@@ -18,18 +19,25 @@ namespace com.paintpuzzle
         private void Awake()
         {
             _boardMatrix = new Tile[_width,_height];
-            Init();
+            float x = -1 * _width  / 2f;
+            float y = -1 * _height / 2f;
+            transform.Translate(x, y, 0);   
+            StartCoroutine(Init()); 
         }
 
-        private void Init() 
+        private IEnumerator Init() 
         {
-            for (int i = 0; i < _boardMatrix.GetLength(0) ; i++)
+            for (int i = _width-1; i  >= 0 ; i--)
             {
-                for(int j=0; j < _boardMatrix.GetLength(1); j++)
+                for(int j=_height-1; j >= 0; j--)
                 {
-                    Vector3 position = new Vector3Int(i,j,0);
-                    Tile tileObject = GameObject.Instantiate<Tile>(_tilePrefab,position, Quaternion.identity);
+                    Vector3 position = new Vector3(i,j,0);
+                    Tile tileObject = GameObject.Instantiate<Tile>(_tilePrefab, Vector3.zero, Quaternion.identity);
+                    tileObject.name = $"Tile [{i}][{j}]";
+                    tileObject.transform.SetParent(transform);
+                    tileObject.transform.localPosition = position;
                     _boardMatrix[i,j] = tileObject;
+                    yield return null;
                 }
             }
         }
