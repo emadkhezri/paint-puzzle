@@ -13,7 +13,7 @@ namespace com.paintpuzzle
             _material = GetComponent<MeshRenderer>().material;
         }
 
-        private void OnMouseDown() {
+        private void Update() {
             _material.color = TileColorUtility.GetColor(_currentColor);
         }
     }
