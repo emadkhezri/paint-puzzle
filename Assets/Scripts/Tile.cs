@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-
+﻿
 namespace com.paintpuzzle
 {
+    using UnityEngine;
+
     public class Tile : MonoBehaviour
     {
         [SerializeField]
