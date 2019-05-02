@@ -14,7 +14,9 @@ namespace com.paintpuzzle
             _material = GetComponent<MeshRenderer>().material;
         }
 
-        private void Update() {
+        public void Mix(TileColor color)
+        {
+            _currentColor = TileColorUtility.MixColor(_currentColor,color);
             _material.color = TileColorUtility.GetColor(_currentColor);
         }
     }
