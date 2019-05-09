@@ -55,13 +55,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AddColorCommand.cs" />
-     <Compile Include="Assets\Scripts\AddColorCommandParams.cs" />
      <Compile Include="Assets\Scripts\CommandHistory.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ICommand.cs" />
-     <Compile Include="Assets\Scripts\PaletteCellScript.cs" />
-     <Compile Include="Assets\Scripts\PuzzleCellScript.cs" />
+     <Compile Include="Assets\Scripts\Road.cs" />
      <Compile Include="Assets\Scripts\Tile.cs" />
      <Compile Include="Assets\Scripts\TileBoard.cs" />
      <Compile Include="Assets\Scripts\TileColor.cs" />

@@ -10,9 +10,9 @@ namespace com.paintpuzzle
         private Tile _tilePrefab;
 
         [SerializeField]
-        private int _width;
+        private int _width=2;
         [SerializeField]
-        private int _height;
+        private int _height=2;
 
         private Tile[,] _boardMatrix;
 
