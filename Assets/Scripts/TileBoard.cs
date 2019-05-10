@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace com.paintpuzzle 
 {
@@ -40,6 +41,11 @@ namespace com.paintpuzzle
                     yield return null;
                 }
             }
+        }
+
+        public void Paint(TileColor selectedColor, Vector3 selectedPosition)
+        {
+
         }
         
     }
