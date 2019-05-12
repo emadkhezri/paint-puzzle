@@ -2,7 +2,6 @@
 
 namespace com.paintpuzzle
 {
-    
     public class GameManager : MonoBehaviour
     {
         [SerializeField]
@@ -11,12 +10,11 @@ namespace com.paintpuzzle
         [SerializeField]
         private TileBoard _tileBoard;
 
-        private void OnMouseDown() {
-            var selectedPosition = Input.mousePosition;
-            selectedPosition.z = 10f;
-            selectedPosition = Camera.main.ScreenToWorldPoint(selectedPosition);
-            _tileBoard.Paint(_selectedColor,selectedPosition);
+        private void Update() 
+        {   
         }
+
+            
     }
 
 }
