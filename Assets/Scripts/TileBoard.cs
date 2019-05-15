@@ -24,6 +24,18 @@ namespace com.paintpuzzle
             float y = -1 * _height / 2f;
             transform.Translate(x, y, 0);   
             StartCoroutine(Init()); 
+            MouseInputHandler.OnDragPreview += OnDragPreview;
+            MouseInputHandler.OnDragPreview += OnDragFinished;
+        }
+
+        private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
+        {
+            Debug.Log($"Drag has started from {dragStart} to {dragEnd}");
+        }
+
+        private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
+        {
+            Debug.Log($"Drag has started from {dragStart} to {dragEnd}");
         }
 
         private IEnumerator Init() 
