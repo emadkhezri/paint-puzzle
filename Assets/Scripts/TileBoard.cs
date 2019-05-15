@@ -55,9 +55,15 @@ namespace com.paintpuzzle
             }
         }
 
-        public void Paint(TileColor selectedColor, Vector3 selectedPosition)
+        public void Paint(TileColor selectedColor, Vector2Int startIndex, Vector2 endIndex)
         {
-
+            for (int i = startIndex.x; i < endIndex.x; i++)
+            {
+                for (int j = startIndex.y; j < endIndex.y; j++)
+                {
+                    _boardMatrix[i,j].Mix(selectedColor);
+                }
+            }
         }
         
     }
