@@ -10,6 +10,8 @@ namespace com.paintpuzzle
         [SerializeField]
         private Tile _tilePrefab;
 
+        private Vector3 _tilePrefabPivot;
+
         [SerializeField]
         private int _width=2;
         [SerializeField]
@@ -22,15 +24,18 @@ namespace com.paintpuzzle
             _boardMatrix = new Tile[_width,_height];
             float x = -1 * _width  / 2f;
             float y = -1 * _height / 2f;
-            transform.Translate(x, y, 0);   
+            _tilePrefabPivot = new Vector3(x,y,0);
+            transform.Translate(_tilePrefabPivot);   
             StartCoroutine(Init()); 
             MouseInputHandler.OnDragPreview += OnDragPreview;
-            MouseInputHandler.OnDragPreview += OnDragFinished;
+            MouseInputHandler.OnDragFinished += OnDragFinished;
         }
 
         private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
         {
-            
+            Vector2Int startIndex = new Vector2Int(Mathf.FloorToInt(dragStart.x-_tilePrefabPivot.x),Mathf.FloorToInt(dragStart.y-_tilePrefabPivot.y));
+            Vector2Int endIndex = new Vector2Int(Mathf.FloorToInt(dragEnd.x-_tilePrefabPivot.x), Mathf.FloorToInt(dragEnd.y-_tilePrefabPivot.y));
+            Paint(TileColor.Blue,startIndex,endIndex);
         }
 
         private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
