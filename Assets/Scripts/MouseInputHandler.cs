@@ -8,7 +8,7 @@ namespace com.paintpuzzle
     {
         public void OnBeginDrag(PointerEventData eventData)
         {
-            Debug.Log($"Drag has started {eventData.button}");
+            Debug.Log($"Drag has started {eventData.button} {eventData.pointerCurrentRaycast.worldPosition}");
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -17,7 +17,7 @@ namespace com.paintpuzzle
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            Debug.Log($"Drag has ended {eventData.button}");
+            Debug.Log($"Drag has ended {eventData.button}, {eventData.pointerCurrentRaycast.worldPosition}");
         }
     }
     
