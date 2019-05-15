@@ -30,7 +30,7 @@ namespace com.paintpuzzle
 
         private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
         {
-            Debug.Log($"Drag has started from {dragStart} to {dragEnd}");
+            
         }
 
         private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
@@ -55,11 +55,11 @@ namespace com.paintpuzzle
             }
         }
 
-        public void Paint(TileColor selectedColor, Vector2Int startIndex, Vector2 endIndex)
+        public void Paint(TileColor selectedColor, Vector2Int startIndex, Vector2Int endIndex)
         {
-            for (int i = startIndex.x; i < endIndex.x; i++)
+            for (int i = startIndex.x; i != endIndex.x; i+=Math.Sign(endIndex.x-startIndex.x))
             {
-                for (int j = startIndex.y; j < endIndex.y; j++)
+                for (int j = startIndex.y; j != endIndex.y; j+=Math.Sign(endIndex.y-startIndex.y))
                 {
                     _boardMatrix[i,j].Mix(selectedColor);
                 }
