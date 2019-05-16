@@ -40,7 +40,6 @@ namespace com.paintpuzzle
 
         private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
         {
-            Debug.Log($"Drag has started from {dragStart} to {dragEnd}");
         }
 
         private IEnumerator Init() 

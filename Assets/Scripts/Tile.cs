@@ -19,9 +19,5 @@ namespace com.paintpuzzle
             _currentColor = TileColorUtility.MixColor(_currentColor,color);
             _material.color = TileColorUtility.GetColor(_currentColor);
         }
-
-        private void OnMouseDown() {
-            Mix(TileColor.Blue);
-        }
     }
 }
