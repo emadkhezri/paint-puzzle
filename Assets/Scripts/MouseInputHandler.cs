@@ -15,9 +15,9 @@ namespace com.paintpuzzle
         public static Action<Vector3,Vector3> OnDragFinished;
         
         public void OnBeginDrag(PointerEventData eventData)
-
         {
             _dragStartPosition = eventData.pointerCurrentRaycast.worldPosition;
+            Debug.Log($"eventData {eventData.pointerCurrentRaycast.worldPosition}");
         }
 
         public void OnDrag(PointerEventData eventData)
@@ -30,6 +30,7 @@ namespace com.paintpuzzle
         {
             _dragEndPosition = eventData.pointerCurrentRaycast.worldPosition;
             OnDragFinished?.Invoke(_dragStartPosition,_dragEndPosition);
+            Debug.Log($"eventData {eventData.pointerCurrentRaycast.worldPosition}");
         }
     }
     
