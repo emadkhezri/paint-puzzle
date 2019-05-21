@@ -16,10 +16,10 @@ namespace  com.paintpuzzle
 
         private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
         {
-            Bounds bound = new Bounds();
-            bound.SetMinMax(dragStart,dragEnd);
-            _boxCollider.center = bound.center;
-            _boxCollider.size = bound.extents;
+            Vector3 center = (dragStart+dragEnd)/2f;
+            _boxCollider.center = center;
+            Vector3 signedSize = dragEnd-dragStart;
+            _boxCollider.size = new Vector3(Mathf.Abs(signedSize.x),Mathf.Abs(signedSize.y),Mathf.Abs(signedSize.z));
         }
 
         private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
