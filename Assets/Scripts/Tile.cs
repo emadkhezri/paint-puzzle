@@ -7,11 +7,12 @@ namespace com.paintpuzzle
     {
         [SerializeField]
         private TileColor _currentColor;
-
         private Material _material;
+        public BoxCollider Collider;
 
         private void Awake() {
             _material = GetComponent<MeshRenderer>().material;
+            Collider = GetComponent<BoxCollider>();
         }
 
         public void Mix(TileColor color)

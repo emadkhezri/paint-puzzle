@@ -27,19 +27,6 @@ namespace com.paintpuzzle
             _tilePrefabPivot = new Vector3(x,y,0);
             transform.Translate(_tilePrefabPivot);   
             StartCoroutine(Init()); 
-            MouseInputHandler.OnDragPreview += OnDragPreview;
-            MouseInputHandler.OnDragFinished += OnDragFinished;
-        }
-
-        private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
-        {
-            Vector2Int startIndex = new Vector2Int(Mathf.FloorToInt(dragStart.x-_tilePrefabPivot.x),Mathf.FloorToInt(dragStart.y-_tilePrefabPivot.y));
-            Vector2Int endIndex = new Vector2Int(Mathf.FloorToInt(dragEnd.x-_tilePrefabPivot.x), Mathf.FloorToInt(dragEnd.y-_tilePrefabPivot.y));
-            Paint(TileColor.Blue,startIndex,endIndex);
-        }
-
-        private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)
-        {
         }
 
         private IEnumerator Init() 
@@ -55,17 +42,6 @@ namespace com.paintpuzzle
                     tileObject.transform.localPosition = position;
                     _boardMatrix[i,j] = tileObject;
                     yield return null;
-                }
-            }
-        }
-
-        public void Paint(TileColor selectedColor, Vector2Int startIndex, Vector2Int endIndex)
-        {
-            for (int i = startIndex.x; i != endIndex.x; i+=Math.Sign(endIndex.x-startIndex.x))
-            {
-                for (int j = startIndex.y; j != endIndex.y; j+=Math.Sign(endIndex.y-startIndex.y))
-                {
-                    _boardMatrix[i,j].Mix(selectedColor);
                 }
             }
         }
