@@ -9,6 +9,9 @@ namespace  com.paintpuzzle
         [SerializeField]
         private BoxCollider _boxCollider;
 
+        [SerializeField]
+        private TileBoard _tileBoard;
+
         private void Start() {
             MouseInputHandler.OnDragFinished += OnDragFinished;
             MouseInputHandler.OnDragPreview += OnDragPreview;
@@ -16,10 +19,10 @@ namespace  com.paintpuzzle
 
         private void OnDragFinished(Vector3 dragStart, Vector3 dragEnd)
         {
-            Vector3 center = (dragStart+dragEnd)/2f;
-            _boxCollider.center = center;
+            Vector3 dragCenter = (dragStart+dragEnd)/2f;
+            _boxCollider.center = dragCenter-_tileBoard.TilePrefabPivot;
             Vector3 signedSize = dragEnd-dragStart;
-            _boxCollider.size = new Vector3(Mathf.Abs(signedSize.x),Mathf.Abs(signedSize.y),Mathf.Abs(signedSize.z));
+            _boxCollider.size = new Vector3(Mathf.Abs(signedSize.x),Mathf.Abs(signedSize.y),2);
         }
 
         private void OnDragPreview(Vector3 dragStart, Vector3 dragEnd)

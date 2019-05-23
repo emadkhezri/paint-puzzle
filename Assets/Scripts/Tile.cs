@@ -13,12 +13,17 @@ namespace com.paintpuzzle
         private void Awake() {
             _material = GetComponent<MeshRenderer>().material;
             Collider = GetComponent<BoxCollider>();
+            Collider.isTrigger = true;
         }
 
         public void Mix(TileColor color)
         {
             _currentColor = TileColorUtility.MixColor(_currentColor,color);
             _material.color = TileColorUtility.GetColor(_currentColor);
+        }
+
+        private void OnTriggerEnter(Collider other) {
+            Debug.Log($"Trigger entered {gameObject.name}");
         }
     }
 }

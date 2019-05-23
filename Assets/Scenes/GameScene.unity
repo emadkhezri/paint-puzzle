@@ -234,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tilePrefab: {fileID: -2585275850525154757, guid: 8f3e034ec5e18a845a1f8e9be6994136,
     type: 3}
+  TilePrefabPivot: {x: 0, y: 0, z: 0}
   _width: 5
   _height: 5
 --- !u!114 &1006185603
@@ -406,6 +407,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boxCollider: {fileID: 1629989467}
+  _tileBoard: {fileID: 1006185602}
 --- !u!65 &1629989467
 BoxCollider:
   m_ObjectHideFlags: 0

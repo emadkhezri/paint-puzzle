@@ -10,7 +10,7 @@ namespace com.paintpuzzle
         [SerializeField]
         private Tile _tilePrefab;
 
-        private Vector3 _tilePrefabPivot;
+        public Vector3 TilePrefabPivot;
 
         [SerializeField]
         private int _width=2;
@@ -24,8 +24,8 @@ namespace com.paintpuzzle
             _boardMatrix = new Tile[_width,_height];
             float x = -1 * _width  / 2f;
             float y = -1 * _height / 2f;
-            _tilePrefabPivot = new Vector3(x,y,0);
-            transform.Translate(_tilePrefabPivot);   
+            TilePrefabPivot = new Vector3(x,y,0);
+            transform.Translate(TilePrefabPivot);   
             StartCoroutine(Init()); 
         }
 
