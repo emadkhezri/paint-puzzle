@@ -11,7 +11,7 @@ namespace com.paintpuzzle
         private TileBoard _tileBoard;
 
         private void OnMouseEnter() {
-            _tileBoard.SelectedColor = _tile.Color;
+            _tileBoard.SelectedColor = _tile.CurrentColor;
         }
     }    
 }

@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d1484e8e028c44fb087a96fd198569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: 1
+  CurrentColor: 1
   TileBoard: {fileID: 1006185602}
   Collider: {fileID: 2277363898644805790}
 --- !u!65 &174622380841637408
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d1484e8e028c44fb087a96fd198569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: 0
+  CurrentColor: 0
   TileBoard: {fileID: 1006185602}
   Collider: {fileID: 174622380841637408}
 --- !u!65 &2277363898644805790
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d1484e8e028c44fb087a96fd198569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: 2
+  CurrentColor: 2
   TileBoard: {fileID: 1006185602}
   Collider: {fileID: 4535204856044405321}
 --- !u!33 &3778612989269753860
@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d1484e8e028c44fb087a96fd198569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Color: 3
+  CurrentColor: 3
   TileBoard: {fileID: 1006185602}
   Collider: {fileID: 8643189600664077280}
 --- !u!65 &8643189600664077280

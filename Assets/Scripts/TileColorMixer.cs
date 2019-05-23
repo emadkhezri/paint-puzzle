@@ -15,6 +15,7 @@ namespace com.paintpuzzle
             s_mixTable = new Dictionary<MixInput, TileColor>();
 
             #region Fill the table
+            s_mixTable.Add(new MixInput(TileColor.White, TileColor.White), TileColor.White);
 
             s_mixTable.Add(new MixInput(TileColor.White, TileColor.Red), TileColor.Red);
             s_mixTable.Add(new MixInput(TileColor.White, TileColor.Green), TileColor.Green);

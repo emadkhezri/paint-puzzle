@@ -6,7 +6,7 @@ namespace com.paintpuzzle
     public class Tile : MonoBehaviour
     {
         [SerializeField]
-        public TileColor Color;
+        public TileColor CurrentColor;
         [SerializeField]
         public TileBoard TileBoard;
         private Material _material;
@@ -16,13 +16,13 @@ namespace com.paintpuzzle
             _material = GetComponent<MeshRenderer>().material;
             Collider = GetComponent<BoxCollider>();
             Collider.isTrigger = true;
-            Mix(Color);
+            Mix(CurrentColor);
         }
 
         public void Mix(TileColor color)
         {
-            Color = TileColorUtility.MixColor(Color,color);
-            _material.color = TileColorUtility.GetColor(Color);
+            CurrentColor = TileColorUtility.MixColor(CurrentColor,color);
+            _material.color = TileColorUtility.GetColor(CurrentColor);
         }
 
         private void OnTriggerEnter(Collider other) {
