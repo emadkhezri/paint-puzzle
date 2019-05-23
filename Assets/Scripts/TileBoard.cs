@@ -12,6 +12,8 @@ namespace com.paintpuzzle
 
         public Vector3 TilePrefabPivot;
 
+        public TileColor SelectedColor;
+
         [SerializeField]
         private int _width=2;
         [SerializeField]
@@ -40,6 +42,7 @@ namespace com.paintpuzzle
                     tileObject.name = $"Tile [{i}][{j}]";
                     tileObject.transform.SetParent(transform);
                     tileObject.transform.localPosition = position;
+                    tileObject.TileBoard = this;
                     _boardMatrix[i,j] = tileObject;
                     yield return null;
                 }

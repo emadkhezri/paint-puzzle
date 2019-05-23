@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ColorChooser.cs" />
      <Compile Include="Assets\Scripts\CommandHistory.cs" />
      <Compile Include="Assets\Scripts\DragBox.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
