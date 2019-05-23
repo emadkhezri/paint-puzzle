@@ -13,6 +13,8 @@ namespace  com.paintpuzzle
         private TileBoard _tileBoard;
 
         private void Start() {
+            _boxCollider.size = Vector3.zero;
+            _boxCollider.center = Vector3.one;
             MouseInputHandler.OnDragFinished += OnDragFinished;
             MouseInputHandler.OnDragPreview += OnDragPreview;
         }

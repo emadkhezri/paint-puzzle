@@ -19,7 +19,7 @@ namespace com.paintpuzzle
 
         private Tile[,] _boardMatrix;
 
-        private void Awake()
+        private void Start()
         {
             _boardMatrix = new Tile[_width,_height];
             float x = -1 * _width  / 2f;

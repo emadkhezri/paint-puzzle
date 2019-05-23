@@ -23,7 +23,10 @@ namespace com.paintpuzzle
         }
 
         private void OnTriggerEnter(Collider other) {
-            Debug.Log($"Trigger entered {gameObject.name}");
+                if (other.gameObject.layer==8)
+                {
+                    Mix(TileColor.Blue);   
+                }
         }
     }
 }
